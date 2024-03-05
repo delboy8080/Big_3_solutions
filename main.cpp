@@ -6,7 +6,8 @@
 void displayStack(Stack stk)
 {
     cout << stk << endl;
-    stk.push(2);
+    stk.pop();
+    stk.pop();
     stk.push(3);
     stk.push(4);
     cout << stk <<endl;
@@ -16,11 +17,9 @@ int main() {
 
     Stack stk;
     stk.push(1);
+    stk.push(2);
     displayStack(stk);
-    cout << stk <<endl;
-    for(int i = 0; i < 4;i++)// 2,3,4 should not appear in hte stack.
-    {
-        cout << stk[i] <<endl;
-    }
+    cout << stk <<endl; // should be 1 and 2 not 3 and 4
+
     return 0;
 }
