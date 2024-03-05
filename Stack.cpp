@@ -34,3 +34,24 @@ int Stack::size()
 {
     return count;
 }
+
+int& Stack::operator[](int i)
+{
+    if(i > 0 && i < capacity)
+    {
+        return nums[i];
+    }
+    throw std::logic_error("Array out of bounds");
+}
+
+std::ostream& operator<<(std::ostream& out, const Stack &stk)
+{
+    for(int i = 0; i < stk.count; i++)
+    {
+        if(i!=0)
+            out << ", ";
+        out << stk.nums[i];
+    }
+    out << "<- top of the stack"<<std::endl;
+    return out;
+}

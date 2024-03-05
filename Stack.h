@@ -1,4 +1,6 @@
 #pragma once
+#include  <stdexcept>
+#include <iostream>
 class Stack
 {
 	int* nums;
@@ -10,4 +12,6 @@ public:
 	void pop();
 	int peek();
 	int size();
+    int& operator[](int i);
+    friend std::ostream& operator<<(std::ostream& out, const Stack &stk);
 };
