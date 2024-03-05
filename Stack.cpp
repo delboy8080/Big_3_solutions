@@ -24,6 +24,7 @@ void Stack::push(int i)
 }
 void Stack::pop()
 {
+    nums[count-1] = 0;
     count--;
 }
 int Stack::peek()
@@ -37,7 +38,7 @@ int Stack::size()
 
 int& Stack::operator[](int i)
 {
-    if(i > 0 && i < capacity)
+    if(i >= 0 && i < capacity)
     {
         return nums[i];
     }
