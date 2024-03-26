@@ -1,5 +1,7 @@
 #include "Polygon.h"
 
+
+
 Polygon::Polygon(int numPoints)
 {
     numberOfPoints = numPoints;
@@ -28,6 +30,41 @@ ostream& operator<<(ostream& out, const Polygon &poly)
     }
     return out;
 }
+
+
+
+Polygon& Polygon::operator=(Polygon &other)
+{
+    if(&other == this)
+    {
+        return *this;
+    }
+
+    this->numberOfPoints = numberOfPoints;
+    if(points != nullptr)
+    {
+        delete[] points;
+        points = nullptr;
+    }
+    points = new Point[numberOfPoints];
+    for(int i = 0; i < numberOfPoints;i++)
+    {
+        points[i] = other.points[i];
+    }
+    return *this;
+}
+Polygon::Polygon(Polygon &other)
+{
+    this->numberOfPoints = numberOfPoints;
+
+    points = new Point[numberOfPoints];
+    for(int i = 0; i < numberOfPoints;i++)
+    {
+        points[i] = other.points[i];
+    }
+}
+
 Polygon::~Polygon()
 {
+    delete[] points;
 }
