@@ -56,3 +56,37 @@ std::ostream& operator<<(std::ostream& out, const Stack &stk)
     out << "<- top of the stack"<<std::endl;
     return out;
 }
+
+Stack::Stack(Stack &other)
+{
+    count = other.count;
+    capacity = other.capacity;
+    nums = new int[capacity];
+    for(int i =0; i < count;i++)
+    {
+        nums[i] = other.nums[i];
+    }
+}
+Stack& Stack::operator=(Stack& other)
+{
+    if(&other == this) {
+        return *this;
+    }
+    count = other.count;
+    capacity = other.capacity;
+    if(nums !=nullptr)
+    {
+        delete [] nums;
+    }
+    nums = new int[capacity];
+
+    for(int i =0; i < count;i++)
+    {
+        nums[i] = other.nums[i];
+    }
+    return *this;
+}
+Stack::~Stack()
+{
+   delete[] nums;
+}

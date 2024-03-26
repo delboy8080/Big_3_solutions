@@ -10,7 +10,8 @@ public:
 	Course* getCourse();
 	void setName(string n);
 	string getName() ;
-
+    Student(Student &other);
+    Student& operator=(Student &other);
 	~Student();
 };
 

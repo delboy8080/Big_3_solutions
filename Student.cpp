@@ -24,3 +24,25 @@ string  Student::getName()
 {
     return name;
 }
+
+Student::Student(Student &other)
+{
+    course = new Course(*other.course);
+    this->name = other.name;
+}
+Student& Student::operator=(Student &other)
+{
+    if(&other == this){
+        return *this;
+    }
+    if(course !=nullptr)
+    {
+        course = new Course(*other.course);
+    }
+    this->name = other.name;
+    return *this;
+}
+Student::~Student()
+{
+    delete course;
+}

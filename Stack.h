@@ -14,4 +14,7 @@ public:
 	int size();
     int& operator[](int i);
     friend std::ostream& operator<<(std::ostream& out, const Stack &stk);
+    Stack(Stack &other);
+    Stack& operator=(Stack& other);
+    ~Stack();
 };

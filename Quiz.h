@@ -9,4 +9,7 @@ class Quiz
 public:
 	Quiz(string title, int numQuestions);
 	void addQuestion(Question q);
+    Quiz(Quiz &other);
+    Quiz& operator=(Quiz& other);
+    ~Quiz();
 };
